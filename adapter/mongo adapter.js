@@ -1,9 +1,6 @@
 const mongo = require("mongodb").MongoClient;
 const url = "mongodb://localhost:27017";
 
-//put not working
-//post put are same?
-
 class MongoAdapter {
   constructor() {}
 
@@ -117,36 +114,14 @@ class MongoAdapter {
   put(query_id, query_object) {
     this.del(query_id);
     this.post({ ...query_id, ...query_object });
+    console.log("successfully put");
   }
-  // put(query_id, query_object) {
-  //   mongo.connect(
-  //     url,
-  //     {
-  //       useNewUrlParser: true,
-  //       useUnifiedTopology: true,
-  //     },
-  //     (err, client) => {
-  //       if (err) throw err;
-  //       var db = client.db("rawEng");
-  //       var collection = db.collection("employees");
-  //       collection.updateOne(
-  //         { id: query_id }, //IF I REMOVE SET THEN IT WILL REPLACE ALL CONTENT WITH THIS, ACT LIKE PUT REQUEST
-  //         { first_name: "shree ram" },
-  //         (err, item) => {
-  //           if (err) throw err;
-  //           console.log("Sucessfully put");
-  //           client.close();
-  //         }
-  //       );
-  //     }
-  //   );
-  // }
 }
 
-adp = new MongoAdapter();
+// adp = new MongoAdapter();
 // adp.get(2);
-adp.getAll();
-// // adp.post("bahu", "bali", "findmeifucan@gmail.com");
+// adp.getAll();
+// // adp.post("bahu", "mahesh", "findmeifucan@gmail.com");
 // adp.post({
 //   id: 1,
 //   first_name: "keval",

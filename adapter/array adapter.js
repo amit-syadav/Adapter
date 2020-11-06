@@ -1,5 +1,3 @@
-const { getMaxListeners } = require("process");
-
 class ArrayAdapter {
   constructor() {
     this.arr = [];
@@ -7,15 +5,18 @@ class ArrayAdapter {
 
   get(query_id) {
     let result = this.arr.find((obj) => obj.id == query_id);
+    console.log("showing one entry");
     console.log(result);
   }
 
   getAll() {
+    console.log("showing all the entries");
     console.log(this.arr);
   }
 
   post(query_obj) {
     this.arr.push(query_obj);
+    console.log("Successfully inserted");
     console.log();
   }
 
@@ -25,6 +26,8 @@ class ArrayAdapter {
         for (let prop in query_obj) {
           this.arr[i][prop] = query_obj[prop];
         }
+        console.log("Sucessfully patched");
+
         return true; // stop searching
       }
     });
@@ -34,6 +37,7 @@ class ArrayAdapter {
     this.arr.find((obj, i) => {
       if (obj.id === query_id) {
         this.arr[i] = query_obj;
+        console.log("successfully put");
         return true; // stop searching
       }
     });
@@ -43,6 +47,7 @@ class ArrayAdapter {
     this.arr.find((obj, i) => {
       if (obj.id === query_id) {
         this.arr.splice(i, 1);
+        console.log("successfully deleted");
         return true;
       }
     });

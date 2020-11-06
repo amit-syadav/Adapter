@@ -1,6 +1,6 @@
-const Mongo = require("./keede mongo adapter copy");
-const Rest = require("./local json adapter");
-const Array = require("./array adapter");
+const Mongo = require("./adapter/mongo adapter");
+const Rest = require("./adapter/rest adapter");
+const Array = require("./adapter/array adapter");
 
 class Adapter {
   constructor(type) {
@@ -18,7 +18,14 @@ class Adapter {
   }
 
   get(query_id) {
-    this.obj.get(query_id);
+    try {
+      if (typeof query_id !== "number") {
+        throw new TypeError("Query ID must be a vaid number");
+      }
+      this.obj.get(query_id);
+    } catch (e) {
+      console.log(e.message);
+    }
   }
 
   getAll() {
@@ -26,20 +33,70 @@ class Adapter {
   }
 
   post(query_obj) {
-    this.obj.post(query_obj);
+    try {
+      if (typeof query_obj !== "object") {
+        throw new TypeError("Query post must be a vaid object");
+      }
+      this.obj.post(query_obj);
+    } catch (e) {
+      console.log(e.message);
+    }
   }
 
   put(query_id, query_obj) {
-    this.obj.put(query_id, query_obj);
+    try {
+      if (typeof query_id !== "number") {
+        throw new TypeError("Query ID must be a vaid number");
+      }
+      if (typeof query_obj !== "object") {
+        throw new TypeError("Query post must be a vaid object");
+      }
+      this.obj.put(query_id, query_obj);
+    } catch (e) {
+      console.log(e.message);
+    }
   }
 
   patch(query_id, query_obj) {
-    this.patch(query_id, query_obj);
+    try {
+      if (typeof query_id !== "number") {
+        throw new TypeError("Query ID must be a vaid number");
+      }
+      if (typeof query_obj !== "object") {
+        throw new TypeError("Query post must be a vaid object");
+      }
+      this.obj.patch(query_id, query_obj);
+    } catch (e) {
+      console.log(e.message);
+    }
   }
 
   del(query_id) {
-    this.del(query_id);
+    try {
+      if (typeof query_id !== "number") {
+        throw new TypeError("Query ID must be a vaid number");
+      }
+      this.obj.del(query_id);
+    } catch (e) {
+      console.log(e.message);
+    }
   }
 }
 
-adp = new Adapter("Array");
+adp = new Adapter("mongo");
+// EXECUTE ALL ONE BY ONE
+
+// adp.getAll();
+// adp.post({
+//   id: 100,
+//   first_name: "keval",
+//   last_name: "shah",
+//   email: "keval@gmail.com",
+// });
+// adp.get(100);
+// adp.patch(100, { first_name: "amit" });
+// adp.getAll();
+// adp.put(100, { first_name: "rahul", last_name: "vijay" });
+// adp.getAll();
+// adp.del(100);
+// adp.getAll();
