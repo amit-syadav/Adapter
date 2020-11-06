@@ -1,4 +1,0 @@
-1. connecting and closing my mongo db connection in every function, is there a workaround to prevent this and connect only once at constructer
-
-
-2. id is not unique, the id is getting repeated
