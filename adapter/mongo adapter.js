@@ -4,6 +4,8 @@ const url = "mongodb://localhost:27017";
 class MongoAdapter {
   constructor() {}
 
+  // makeConnection
+
   get(query_id) {
     mongo.connect(
       url,

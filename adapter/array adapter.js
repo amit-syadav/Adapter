@@ -17,11 +17,12 @@ class ArrayAdapter {
   post(query_obj) {
     this.arr.push(query_obj);
     console.log("Successfully inserted");
-    console.log();
+    // console.log();
   }
 
   patch(query_id, query_obj) {
-    let obj = this.arr.find((obj, i) => {
+    this.arr.forEach((obj, i) => {
+      //use for each
       if (obj.id === query_id) {
         for (let prop in query_obj) {
           this.arr[i][prop] = query_obj[prop];

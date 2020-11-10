@@ -83,8 +83,8 @@ class Adapter {
   }
 }
 
-adp = new Adapter("mongo");
-// EXECUTE ALL ONE BY ONE
+// adp = new Adapter("rest");
+// // EXECUTE ALL ONE BY ONE
 
 // adp.getAll();
 // adp.post({
@@ -97,6 +97,42 @@ adp = new Adapter("mongo");
 // adp.patch(100, { first_name: "amit" });
 // adp.getAll();
 // adp.put(100, { first_name: "rahul", last_name: "vijay" });
+// adp.getAll();
+// adp.del(100);
+// adp.getAll();
+
+// adp = new Adapter("mongo");
+// EXECUTE ALL ONE BY ONE
+
+// adp.getAll();
+// adp.post({
+//   id: 100,
+//   first_name: "keval",
+//   last_name: "shah",
+//   email: "keval@gmail.com",
+// });
+// adp.get(100);
+// adp.patch(100, { first_name: "amit" });
+// adp.getAll();
+// adp.put(100, { id: 100, first_name: "rahul", last_name: "vijay" });
+// adp.getAll();
+// adp.del(100);
+// adp.getAll();
+
+// adp = new Adapter("array");
+// // IMP IMP to be executed all at once
+
+// adp.getAll();
+// adp.post({
+//   id: 100,
+//   first_name: "keval",
+//   last_name: "shah",
+//   email: "keval@gmail.com",
+// });
+// adp.get(100);
+// adp.patch(100, { first_name: "amit" });
+// adp.getAll();
+// adp.put(100, { id: 100, first_name: "rahul", last_name: "vijay" });
 // adp.getAll();
 // adp.del(100);
 // adp.getAll();
